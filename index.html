@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TCO Technology</title>
+<meta name="description" content="TCO Technology is a niche software developer. We work with smaller business owners to fill the gaps the big companies can't.">
+<meta property="og:title" content="TCO Technology">
+<meta property="og:description" content="TCO Technology is a niche software developer. We work with smaller business owners to fill the gaps the big companies can't.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tcotechgroup.com/">
+<meta name="theme-color" content="#E9EDEF">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230A1230'/%3E%3Cpath d='M14 18h26v6H30v24h-6V24H14z' fill='%23F4F6F8'/%3E%3Cpath d='M50 16L40 50' stroke='%2386BBA3' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: a clean Steel page with navy type. One navy panel (the rotating beliefs) is the only dark block; everything else is light. */
+:root{
+  --steel:#E9EDEF;     /* page */
+  --paper:#F3F5F6;     /* raised light panel */
+  --ink:#0A1230;       /* type, dark bands */
+  --ink-2:#0F1938;     /* second dark band, a shade apart */
+  --green:#1F4D3A;     /* the slash on light */
+  --jade:#86BBA3;      /* the slash on dark */
+  --lab:#4F5563;       /* secondary text on light */
+  --mute:#A7AEC2;      /* secondary text on dark */
+  --capd:#8E96B3;      /* labels on dark */
+  --hair:rgba(10,18,48,.12);
+  --haird:rgba(233,237,239,.14);
+  --f:'Jost','Futura','Century Gothic','Helvetica Neue',sans-serif;
+  --sec:clamp(80px,10vw,132px);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--steel);color:var(--ink);font-family:var(--f);font-size:17px;line-height:1.6;font-weight:400;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+h1,h2,h3{margin:0;font-weight:300;letter-spacing:-.03em;text-wrap:balance}
+p{margin:0}
+a{color:inherit;text-decoration:none}
+.cap{font-size:11.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--lab)}
+button:focus-visible,a:focus-visible{outline:2px solid var(--jade);outline-offset:4px}
+section{scroll-margin-top:16px}
+.ph{color:inherit;background:rgba(31,77,58,.09);border-bottom:1px dashed rgba(31,77,58,.55);padding:0 .2em}
+
+/* wordmark */
+.wm{display:inline-flex;align-items:center;font-size:var(--s,15px);line-height:1;color:var(--wm-c,var(--ink));text-transform:uppercase;white-space:nowrap;letter-spacing:.2em}
+.wm b{font-weight:600}
+.wm .sl{display:inline-block;width:max(1.5px,.05em);height:.98em;background:var(--wm-s,var(--green));transform:rotate(18deg);margin:0 .34em 0 .14em;flex:none}
+.wm span{font-weight:300;margin-right:-.2em}
+
+/* top: light page, menu on the page */
+.launch{background:var(--steel);color:var(--ink)}
+.nav{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px 24px;padding-block:28px;border-bottom:1px solid var(--hair)}
+.nav nav{display:flex;flex-wrap:wrap;gap:8px 30px;font-size:14.5px;color:var(--lab)}
+.nav nav a{padding-block:4px;transition:color .15s}
+.nav nav a:hover{color:var(--ink)}
+.launch-body{display:flex;flex-direction:column;gap:clamp(26px,3.6vw,40px);padding-block:clamp(72px,10vw,136px) clamp(64px,8vw,104px)}
+.launch .cap{color:var(--lab);display:flex;align-items:center;gap:12px}
+.live{width:9px;height:9px;border-radius:999px;background:var(--green);flex:none;animation:livepulse 1.6s infinite}
+.launch h1{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+
+.cycle{display:flex;flex-direction:column;gap:18px;max-width:640px}
+.cycle-bar{height:2px;background:var(--hair);position:relative;overflow:hidden}
+.cycle-bar i{position:absolute;inset:0 auto 0 0;width:0;background:var(--green);animation:barfill 5s linear infinite}
+.hint-cycle{display:grid;font-size:clamp(19px,2.2vw,24px);line-height:1.3;color:var(--ink)}
+.hint-cycle span{grid-area:1/1;opacity:0;animation:hintcycle 20s infinite}
+.hint-cycle span::before{content:"/ ";color:var(--green)}
+.hint-cycle span:nth-child(2){animation-delay:5s}
+.hint-cycle span:nth-child(3){animation-delay:10s}
+.hint-cycle span:nth-child(4){animation-delay:15s}
+.cta{color:var(--green);font-weight:500;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;width:fit-content;padding-bottom:6px;border-bottom:1px solid var(--green);transition:color .15s,border-color .15s}
+.cta:hover{color:var(--ink);border-color:var(--ink)}
+@keyframes livepulse{0%{box-shadow:0 0 0 0 rgba(31,77,58,.35)}70%{box-shadow:0 0 0 12px rgba(31,77,58,0)}100%{box-shadow:0 0 0 0 rgba(31,77,58,0)}}
+@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes barfill{from{width:0}to{width:100%}}
+@keyframes hintcycle{0%{opacity:0;transform:translateX(24px)}2.5%{opacity:1;transform:none}22.5%{opacity:1;transform:none}25%{opacity:0;transform:translateX(-24px)}100%{opacity:0}}
+
+/* beliefs: the one navy panel on the page */
+.beliefs{padding-bottom:var(--sec)}
+.beliefs .card{background:var(--paper);color:var(--ink);box-shadow:inset 0 0 0 1px var(--hair);padding:clamp(28px,5vw,64px)}
+.beliefs .head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-bottom:20px;border-bottom:1px solid var(--hair)}
+.beliefs .cap{color:var(--lab)}
+.slides{display:grid;padding-block:clamp(36px,5vw,64px)}
+.slide{grid-area:1/1;display:flex;flex-direction:column;gap:22px;opacity:0;visibility:hidden;transition:opacity .8s ease,visibility 0s linear .8s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .8s ease,visibility 0s}
+.slide h2{font-size:clamp(32px,5.2vw,68px);line-height:1.02;max-width:17ch;color:var(--ink)}
+.slide h2 i{font-style:normal;color:var(--green);padding-right:.16em}
+.slide p{font-size:clamp(17px,1.6vw,19px);color:var(--lab);max-width:48ch}
+.ctrl{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:18px}
+.ticks{display:flex;gap:10px;flex:1;min-width:180px;max-width:420px}
+.ticks button{flex:1;height:28px;padding:0;border:0;background:none;cursor:pointer;position:relative}
+.ticks button::after{content:"";position:absolute;left:0;right:0;top:13px;height:2px;background:var(--hair);transition:background .3s}
+.ticks button.on::after{background:var(--green)}
+.ctl{display:flex;gap:8px;align-items:center}
+.pp,.arrows button{font:inherit;color:var(--ink);background:none;border:0;box-shadow:inset 0 0 0 1px rgba(10,18,48,.25);cursor:pointer;transition:box-shadow .15s,background .15s}
+.pp{font-size:11.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;padding:12px 16px}
+.arrows{display:flex;gap:8px}
+.arrows button{font-size:18px;line-height:1;width:42px;height:42px}
+.pp:hover,.arrows button:hover{box-shadow:inset 0 0 0 1px var(--ink);background:rgba(10,18,48,.04)}
+@media (prefers-reduced-motion:reduce){.slide,.slide.on{transition:none}}
+
+/* founder, two columns */
+.founder{padding-block:var(--sec);border-top:1px solid var(--hair)}
+.f-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(40px,6vw,88px);align-items:start}
+.f-intro{display:flex;flex-direction:column;gap:24px;position:sticky;top:32px}
+.f-intro h2{font-size:clamp(30px,3.4vw,44px);line-height:1.1}
+.sig{display:flex;flex-direction:column;gap:2px;padding-top:20px;border-top:1px solid var(--hair);font-size:15px;color:var(--lab)}
+.sig b{font-weight:500;color:var(--ink);font-size:17px}
+.tabs{display:flex;flex-wrap:wrap;gap:4px 28px;border-bottom:1px solid var(--hair)}
+.tab{font:inherit;font-size:15px;font-weight:400;letter-spacing:0;text-transform:none;color:var(--lab);background:none;border:0;padding:12px 0 16px;cursor:pointer;position:relative;transition:color .15s}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{color:var(--ink)}
+.tab[aria-selected="true"]::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--green)}
+.panel{display:flex;flex-direction:column;gap:20px;padding-top:32px}
+.panel[hidden]{display:none}
+.panel p{color:var(--lab);font-size:17px;line-height:1.7;max-width:60ch}
+.panel p.lead{color:var(--ink)}
+.panel .sl2{color:var(--green);padding-right:.2em}
+.panel .edu{display:flex;flex-direction:column;gap:4px;padding:18px 20px;background:var(--paper);border-left:2px solid var(--green)}
+.panel .edu b{font-weight:500}
+.contact-list{display:flex;flex-direction:column;border-top:1px solid var(--hair)}
+.contact-list a{display:flex;justify-content:space-between;gap:16px;padding:18px 0;border-bottom:1px solid var(--hair);font-size:18px;transition:color .15s}
+.contact-list a span{color:var(--lab);font-size:11.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;align-self:center}
+.contact-list a:hover{color:var(--green)}
+
+/* how it works, light */
+.how{background:var(--paper);padding-block:var(--sec);border-top:1px solid var(--hair)}
+.how .head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 56px;align-items:end;padding-bottom:clamp(40px,5vw,64px)}
+.how h2{font-size:clamp(34px,5vw,62px);line-height:1.02}
+.how .head p{color:var(--lab);max-width:42ch}
+.fgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:48px 36px}
+.fgrid>div{display:flex;flex-direction:column;gap:12px;border-top:1px solid var(--hair);padding-top:22px;min-width:0}
+.fgrid b{font-weight:400;font-size:19px;letter-spacing:-.01em;line-height:1.3;color:var(--ink)}
+.fgrid b::before{content:"/ ";color:var(--green)}
+.fgrid p{color:var(--lab);font-size:15.5px;line-height:1.6}
+
+.phones{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,40px);padding-bottom:clamp(56px,7vw,88px)}
+.phone{margin:0;display:flex;flex-direction:column;gap:16px;min-width:0}
+.phone .frame{background:var(--ink);padding:9px;border-radius:30px;box-shadow:0 30px 60px -36px rgba(10,18,48,.55)}
+.phone .screen{aspect-ratio:9/16;border-radius:22px;overflow:hidden;background:#fff}
+.phone img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+.phone figcaption{font-size:15px;color:var(--lab);line-height:1.5}
+.phone figcaption b{display:block;color:var(--ink);font-weight:500;font-size:16px}
+.phones-note{font-size:13px;color:var(--lab);margin-top:-8px;padding-bottom:clamp(40px,5vw,56px)}
+@media (max-width:880px){.phones{grid-template-columns:1fr;max-width:340px;margin-inline:auto}}
+/* footer */
+.foot{border-top:1px solid var(--hair);padding-block:40px 48px}
+.foot .row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px 32px}
+.foot .row+.row{margin-top:28px;padding-top:24px;border-top:1px solid var(--hair);font-size:13.5px;color:var(--lab)}
+.foot nav{display:flex;flex-wrap:wrap;gap:8px 28px;font-size:14.5px;color:var(--lab)}
+.foot nav a:hover,.foot .mail:hover{color:var(--ink)}
+.fl{display:inline-flex;align-items:center;gap:12px}
+.flag{width:28px;height:15px;flex:none;box-shadow:0 0 0 1px rgba(10,18,48,.2)}
+
+@media (max-width:880px){
+  .f-grid,.how .head{grid-template-columns:1fr}
+  .f-intro{position:static}
+  .fgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:560px){
+  .fgrid{grid-template-columns:1fr}
+  .nav nav{gap:6px 20px;font-size:14px}
+}
+@media (prefers-reduced-motion:reduce){
+  .launch h1,.live,.cycle-bar i,.hint-cycle span{animation:none}
+  .hint-cycle span{opacity:0}.hint-cycle span:first-child{opacity:1}
+  .cycle-bar i{width:100%}
+}
+.lead-top{padding-block:clamp(56px,8vw,96px) clamp(64px,8vw,104px);display:flex;flex-direction:column;gap:28px}
+.lead-top .cap{display:flex;align-items:center;gap:12px}
+.live{width:9px;height:9px;border-radius:999px;background:var(--green);flex:none;animation:pulse 1.6s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(31,77,58,.35)}70%{box-shadow:0 0 0 12px rgba(31,77,58,0)}100%{box-shadow:0 0 0 0 rgba(31,77,58,0)}}
+
+/* the teaser box */
+.box{background:var(--ink);color:#E9EDEF;display:grid;grid-template-columns:1fr;overflow:hidden;position:relative}
+.box-main{display:flex;flex-direction:column;gap:30px;padding:clamp(28px,4vw,44px) clamp(28px,4vw,48px) clamp(24px,3vw,32px)}
+.box-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.box-head .cap{color:var(--capd)}
+.box-head .no{font-size:13px;letter-spacing:.12em;color:var(--capd);font-variant-numeric:tabular-nums}
+.title{display:flex;flex-direction:column;gap:10px}
+.title .eyebrow{color:var(--jade);font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase}
+.title h1{font-size:clamp(34px,4.6vw,58px);line-height:1.02;color:#F4F6F8}
+.teasers{display:grid}
+.teaser{grid-area:1/1;display:flex;flex-direction:column;gap:12px;opacity:0;transform:translateY(14px);visibility:hidden;transition:opacity .6s ease,transform .6s ease,visibility 0s linear .6s}
+.teaser.on{opacity:1;transform:none;visibility:visible;transition:opacity .6s ease,transform .6s ease,visibility 0s}
+.teaser .tag{font-size:11.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--jade)}
+.teaser h2{font-size:clamp(24px,2.8vw,34px);line-height:1.18;color:#F4F6F8;max-width:22ch}
+.teaser h2::before{content:"/ ";color:var(--jade)}
+.teaser p{color:var(--mute);max-width:44ch;font-size:16px}
+.ctrl{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
+.segs{display:flex;gap:6px;flex:1;min-width:200px;max-width:420px}
+.segs button{flex:1;height:22px;padding:0;border:0;background:none;cursor:pointer;position:relative}
+.segs button::before{content:"";position:absolute;left:0;right:0;top:10px;height:2px;background:var(--haird)}
+.segs button i{position:absolute;left:0;top:10px;height:2px;width:0;background:var(--jade)}
+.segs button.done i{width:100%}
+.segs button.on i{animation:fill var(--dur,6s) linear forwards}
+.box.paused .segs button.on i{animation-play-state:paused}
+@keyframes fill{from{width:0}to{width:100%}}
+.btns{display:flex;gap:8px}
+.btns button{font:inherit;color:#E9EDEF;background:none;border:0;box-shadow:inset 0 0 0 1px rgba(233,237,239,.32);cursor:pointer;height:40px;min-width:40px;padding:0 14px;font-size:11.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase}
+.btns button:hover{box-shadow:inset 0 0 0 1px #E9EDEF}
+.btns .arrow{font-size:18px;letter-spacing:0;padding:0}
+
+/* the veiled product */
+.veil{position:relative;display:grid;place-items:center;padding:28px 24px 44px;border-left:1px solid var(--haird);background:radial-gradient(80% 60% at 50% 45%,rgba(134,187,163,.12),transparent 70%)}
+.device{width:min(196px,58%);aspect-ratio:9/18.5;background:#141d3d;border-radius:34px;padding:9px;box-shadow:0 40px 80px -40px rgba(0,0,0,.8),inset 0 0 0 1px rgba(233,237,239,.12);position:relative}
+.device .glass{position:absolute;inset:9px;border-radius:26px;overflow:hidden}
+.device img{width:100%;height:100%;object-fit:cover;object-position:top;filter:blur(9px) saturate(.75);transform:scale(1.12)}
+.device .frost{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,18,48,.25),rgba(10,18,48,.55));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center}
+.device .frost b{font-weight:200;font-size:64px;line-height:1;letter-spacing:-.04em;color:#F4F6F8}
+.device .frost span{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#D7DCE6}
+.veil .note{position:absolute;bottom:20px;left:0;right:0;text-align:center;font-size:12.5px;color:var(--capd)}
+
+.after{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px 40px}
+.after p{color:var(--lab);max-width:52ch}
+.cta{color:var(--green);font-weight:500;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;padding-bottom:6px;border-bottom:1px solid var(--green);white-space:nowrap}
+
+@media (max-width:860px){
+  .box{grid-template-columns:1fr;min-height:0}
+  .veil{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .live,.segs button.on i{animation:none}
+  .segs button.on i{width:100%}
+  .teaser,.teaser.on{transition:none;transform:none}
+}
+</style>
+</head>
+<body>
+<section class="launch" aria-label="Something that fits">
+  <div class="wrap">
+    <header class="nav">
+      <a href="#top" class="wm" aria-label="TCO Technology, home"><b>TCO</b><i class="sl"></i><span>Technology</span></a>
+      <nav aria-label="Main"><a href="#how">How it works</a><a href="#founder">Founder</a><a href="#contact">Contact</a></nav>
+    </header>
+    <div class="lead-top" id="top">
+    <span class="cap"><i class="live" aria-hidden="true"></i>Coming soon</span>
+
+    <div class="box" id="box" aria-roledescription="carousel" aria-label="Teasers for our first product">
+      <div class="box-main">
+        <span id="no" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)">01 / 07</span>
+
+        <div class="title">
+          <span class="eyebrow">Our first big thing</span>
+          <h1>Built for the businesses the giants don't fit.</h1>
+        </div>
+
+        <div class="teasers">
+          <div class="teaser on"><span class="tag">The idea</span><h2>One screen. One next step.</h2><p>It puts what needs attention in front of you. The only thing a new record requires is a name.</p></div>
+          <div class="teaser" aria-hidden="true"><span class="tag">For your customer</span><h2>Your customer does the data entry.</h2><p>Text a link. They fill in their own details, upload their documents and submit. The record builds itself.</p></div>
+          <div class="teaser" aria-hidden="true"><span class="tag">Estimates</span><h2>Approved from a text.</h2><p>Your customer approves, declines or replies from their phone, and you can track every estimate.</p></div>
+          <div class="teaser" aria-hidden="true"><span class="tag">Change orders</span><h2>Scope changes, signed on a phone.</h2><p>The crew flags it from the field. Urgent ones alert every administrator. The customer signs on their phone.</p></div>
+          <div class="teaser" aria-hidden="true"><span class="tag">In the field</span><h2>Works in a basement with no signal.</h2><p>Edit and take photos anywhere. Everything syncs afterward.</p></div>
+          <div class="teaser" aria-hidden="true"><span class="tag">For the crew</span><h2>The end of the group text.</h2><p>Each person sees their own day across every job. Alerts never carry customer names, and none go out between 5 PM and 7 AM.</p></div>
+          <div class="teaser" aria-hidden="true"><span class="tag">Trust</span><h2>Your data, walled off.</h2><p>Every company gets its own encryption key, and nothing goes out until a person confirms it.</p></div>
+        </div>
+
+        <div class="ctrl">
+          <div class="segs" id="segs">
+            <button class="on" aria-label="Teaser 1"><i></i></button><button aria-label="Teaser 2"><i></i></button><button aria-label="Teaser 3"><i></i></button><button aria-label="Teaser 4"><i></i></button><button aria-label="Teaser 5"><i></i></button><button aria-label="Teaser 6"><i></i></button><button aria-label="Teaser 7"><i></i></button>
+          </div>
+          <div class="btns">
+            <button id="tpp" aria-pressed="false">Pause</button>
+            <button class="arrow" id="tprev" aria-label="Previous teaser">‹</button>
+            <button class="arrow" id="tnext" aria-label="Next teaser">›</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="after">
+      <p>TCO Technology is a niche software developer. We work with smaller business owners to fill the gaps the big companies can't, with custom AI builds shaped to your need and your budget.</p>
+      <a class="cta" href="#contact">Be the first to hear</a>
+    </div>
+  </div>
+  </div>
+</section>
+
+<main>
+  <section class="beliefs" id="screen" aria-roledescription="carousel" aria-label="What we believe">
+    <div class="wrap"><div class="card">
+      <div class="head"><span class="cap">What we believe</span><span class="cap" id="count" aria-live="polite">01 / 05</span></div>
+      <div class="slides">
+        <div class="slide on"><h2><i>/</i>Built for the $1 to $5 million field business.</h2><p>Too big to run on memory and paperwork. Too small for the big guys' software. Almost nobody designs for that middle. We do.</p></div>
+        <div class="slide" aria-hidden="true"><h2><i>/</i>One square at a time.</h2><p>A painter copies a masterpiece in sections, and the whole picture comes together. We break big work down the same way.</p></div>
+        <div class="slide" aria-hidden="true"><h2><i>/</i>Built by a mind that works differently.</h2><p>Less to remember, less to decide, less noise. That's our founder's standard for every screen, and everyone benefits from it.</p></div>
+        <div class="slide" aria-hidden="true"><h2><i>/</i>A new company, looking through a new lens.</h2><p>We didn't shrink the big platforms down to size. We started from how a real crew actually runs a job.</p></div>
+        <div class="slide" aria-hidden="true"><h2><i>/</i>Our first tool. Unreleased.</h2><p>Made for the middle of the market. More when it's ready.</p></div>
+      </div>
+      <div class="ctrl">
+        <div class="ticks" id="ticks">
+          <button class="on" aria-label="Show idea 1"></button><button aria-label="Show idea 2"></button><button aria-label="Show idea 3"></button><button aria-label="Show idea 4"></button><button aria-label="Show idea 5"></button>
+        </div>
+        <div class="ctl">
+          <button class="pp" id="pp" aria-pressed="false">Pause</button>
+          <div class="arrows"><button id="prev" aria-label="Previous idea">‹</button><button id="next" aria-label="Next idea">›</button></div>
+        </div>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="founder" id="founder" aria-label="About the founder">
+    <div class="wrap f-grid">
+      <div class="f-intro">
+        <span class="cap">The founder</span>
+        <h2>TCO Technology is closing the gap between paperwork and the giants.</h2>
+        <div class="sig"><b>Mike Crimaldi</b><span>Founder, TCO Technology</span><span>Highland Heights, Ohio</span></div>
+      </div>
+      <div>
+        <div class="tabs" role="tablist" aria-label="About the founder">
+          <button class="tab" role="tab" id="t-story" aria-controls="p-story" aria-selected="true">Story</button>
+          <button class="tab" role="tab" id="t-approach" aria-controls="p-approach" aria-selected="false" tabindex="-1">The approach</button>
+          <button class="tab" role="tab" id="t-background" aria-controls="p-background" aria-selected="false" tabindex="-1">Background</button>
+          <button class="tab" role="tab" id="t-contact" aria-controls="p-contact" aria-selected="false" tabindex="-1">Get in touch</button>
+        </div>
+
+        <div class="panel" role="tabpanel" id="p-story" aria-labelledby="t-story">
+          <p class="lead">We're new. We never imagined we'd be building software, but we were inspired and encouraged to take the leap.</p>
+          <p>I went to work for a friend's construction company. Six people, good at the work, and the accounting software everybody uses. Running the company was still a mess.</p>
+          <p>I tried the other systems. None of them fit. What I noticed was that every big job moves through the same sequence of stages, start to finish, and none of the software was built around that.</p>
+          <p>We began with one idea for crews in the field. The more I looked, the clearer it got: almost nobody was building tools for the businesses in the middle. That's how TCO Technology started.</p>
+          <p>We're based in Highland Heights, just outside Cleveland, Ohio.</p>
+        </div>
+
+        <div class="panel" role="tabpanel" id="p-approach" aria-labelledby="t-approach" hidden>
+          <p class="lead">We're a new company, and we're looking at this market through a new lens.</p>
+          <p>Almost everyone gets overwhelmed by a very large task. The answer is the one painters use to copy a masterpiece: work in sections, one square at a time, and the whole thing comes together.</p>
+          <p>Ask the owner whether their software works. They'll tell you it works for them. Now ask the crew. That's the gap we're closing: software that works for the crew, not only the office.</p>
+          <p>So our tools are built in sections too. Each stage is something you can see, finish and hand off, so nobody has to hold the whole job in their head.</p>
+          <p class="lead"><span class="sl2">/</span>We work with smaller business owners to fill the gaps the big companies can't, with custom AI builds shaped to the need and the budget.</p>
+        </div>
+
+        <div class="panel" role="tabpanel" id="p-background" aria-labelledby="t-background" hidden>
+                    <p>Before construction, I spent years in hospitality and retail management, leading teams of more than 80 people and multi-million-dollar budgets.</p>
+          <p>I was also a major gifts fundraiser in the nonprofit world.</p>
+        </div>
+
+        <div class="panel" role="tabpanel" id="p-contact" aria-labelledby="t-contact" hidden>
+          <p class="lead">Curious about what we're building, or whether it fits your business? I read every message.</p>
+          <div class="contact-list">
+            <a href="mailto:m.crimaldi@tcotechgroup.com">m.crimaldi@tcotechgroup.com<span>Mike, direct</span></a>
+            <a href="mailto:info@tcotechgroup.com">info@tcotechgroup.com<span>General</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how" id="how" aria-label="How it works">
+    <div class="wrap">
+      <div class="head">
+        <div style="display:flex;flex-direction:column;gap:22px"><span class="cap">How it works</span><h2>Less to chase. More on the job.</h2></div>
+        <p>Our first tool, in plain words. The name and the full picture come at launch.</p>
+      </div>
+      <div class="fgrid">
+        <div><b>The customer fills in their own details</b><p>You send a text link. They enter their information, upload what you need and submit. The record builds itself.</p></div>
+        <div><b>Estimates the customer approves</b><p>Your customer approves, declines or replies from a text link. You can track every estimate.</p></div>
+        <div><b>Change orders signed from the field</b><p>Crews raise a scope change on site. Urgent ones reach every administrator at once. The customer signs on their phone.</p></div>
+        <div><b>One record for the whole job</b><p>Customer, photos, documents, notes, tasks, materials and receipts, in one place.</p></div>
+        <div><b>Photos you can mark up, and change later</b><p>Mark-ups sit on top of the photo, so nothing is permanently baked in.</p></div>
+        <div><b>Works with no signal</b><p>Edit and take photos in a basement. Everything syncs when you're back online.</p></div>
+        <div><b>My Work Day</b><p>Everything assigned to you, across every job, on one screen.</p></div>
+        <div><b>Nothing goes out without a person</b><p>The assistant only suggests. A person confirms every action. Alerts never carry customer names, and none go out from 5 PM to 7 AM.</p></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="row">
+      <a href="#top" class="wm" aria-label="TCO Technology, back to top"><b>TCO</b><i class="sl"></i><span>Technology</span></a>
+      <nav aria-label="Footer"><a href="#how">How it works</a><a href="#founder">Founder</a><a href="#contact">Contact</a></nav>
+    </div>
+    <div class="row">
+      <span class="fl"><svg class="flag" viewBox="0 0 19 10" aria-hidden="true" focusable="false"><rect width="19" height="10" fill="#F4F5F7"/><rect y="0" width="19" height="0.77" fill="#B22234"/><rect y="1.54" width="19" height="0.77" fill="#B22234"/><rect y="3.08" width="19" height="0.77" fill="#B22234"/><rect y="4.62" width="19" height="0.77" fill="#B22234"/><rect y="6.15" width="19" height="0.77" fill="#B22234"/><rect y="7.69" width="19" height="0.77" fill="#B22234"/><rect y="9.23" width="19" height="0.77" fill="#B22234"/><rect width="7.6" height="5.4" fill="#1B2A5E"/><g fill="#F4F5F7"><circle cx="1.3" cy="1.1" r="0.3"/><circle cx="3.8" cy="1.1" r="0.3"/><circle cx="6.3" cy="1.1" r="0.3"/><circle cx="1.3" cy="2.7" r="0.3"/><circle cx="3.8" cy="2.7" r="0.3"/><circle cx="6.3" cy="2.7" r="0.3"/><circle cx="1.3" cy="4.3" r="0.3"/><circle cx="3.8" cy="4.3" r="0.3"/><circle cx="6.3" cy="4.3" r="0.3"/></g></svg><span>© 2026 TCO Technology LLC · Highland Heights, OH 44143</span></span>
+      <a class="mail" href="mailto:info@tcotechgroup.com">info@tcotechgroup.com</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.getElementById('screen'); if(!root) return;
+  var slides=[].slice.call(root.querySelectorAll('.slide')), ticks=[].slice.call(root.querySelectorAll('#ticks button'));
+  var count=document.getElementById('count'), pp=document.getElementById('pp');
+  var i=0, timer=null, hold=false;
+  var still=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var paused=still;
+  function pad(n){return (n<10?'0':'')+n;}
+  function show(n){
+    i=(n+slides.length)%slides.length;
+    slides.forEach(function(s,k){s.classList.toggle('on',k===i);if(k===i)s.removeAttribute('aria-hidden');else s.setAttribute('aria-hidden','true');});
+    ticks.forEach(function(t,k){t.classList.toggle('on',k===i);});
+    count.textContent=pad(i+1)+' / '+pad(slides.length);
+  }
+  function run(){clearInterval(timer);timer=null;if(!paused&&!hold)timer=setInterval(function(){show(i+1);},7000);}
+  function label(){pp.textContent=paused?'Play':'Pause';pp.setAttribute('aria-pressed',paused?'true':'false');}
+  ticks.forEach(function(t,k){t.addEventListener('click',function(){show(k);run();});});
+  document.getElementById('prev').addEventListener('click',function(){show(i-1);run();});
+  document.getElementById('next').addEventListener('click',function(){show(i+1);run();});
+  pp.addEventListener('click',function(){paused=!paused;label();run();});
+  root.addEventListener('mouseenter',function(){hold=true;run();});
+  root.addEventListener('mouseleave',function(){hold=false;run();});
+  root.addEventListener('focusin',function(){hold=true;run();});
+  root.addEventListener('focusout',function(){hold=false;run();});
+  label();run();
+})();
+
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('[role="tab"]'));
+  var panels=[].slice.call(document.querySelectorAll('[role="tabpanel"]'));
+  function select(n,focus){
+    tabs.forEach(function(t,k){var on=k===n;t.setAttribute('aria-selected',on?'true':'false');t.setAttribute('tabindex',on?'0':'-1');});
+    panels.forEach(function(p,k){p.hidden=k!==n;});
+    if(focus)tabs[n].focus();
+  }
+  tabs.forEach(function(t,k){
+    t.addEventListener('click',function(){select(k,false);});
+    t.addEventListener('keydown',function(e){
+      var n=null;
+      if(e.key==='ArrowRight')n=(k+1)%tabs.length;
+      if(e.key==='ArrowLeft')n=(k-1+tabs.length)%tabs.length;
+      if(e.key==='Home')n=0;
+      if(e.key==='End')n=tabs.length-1;
+      if(n!==null){e.preventDefault();select(n,true);}
+    });
+  });
+  var map={approach:1,founder:0,contact:3};
+  function fromHash(){
+    var h=location.hash.slice(1);
+    if(h in map){select(map[h],false);var f=document.getElementById('founder');if(f)f.scrollIntoView({block:'start'});}
+  }
+  window.addEventListener('hashchange',fromHash);
+  if(location.hash)fromHash();
+})();
+</script>
+<script>
+(function(){
+  var box=document.getElementById('box'), slides=[].slice.call(box.querySelectorAll('.teaser')), segs=[].slice.call(box.querySelectorAll('#segs button'));
+  var no=document.getElementById('no'), pp=document.getElementById('tpp');
+  var DUR=6000, i=0, t=null, paused=false, hold=false;
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches) paused=true;
+  box.style.setProperty('--dur',DUR/1000+'s');
+  function pad(n){return (n<10?'0':'')+n;}
+  function show(n){
+    i=(n+slides.length)%slides.length;
+    slides.forEach(function(s,k){var on=k===i;s.classList.toggle('on',on);if(on)s.removeAttribute('aria-hidden');else s.setAttribute('aria-hidden','true');});
+    segs.forEach(function(b,k){b.classList.remove('on');b.classList.toggle('done',k<i);var el=b.querySelector('i');el.style.animation='none';void el.offsetWidth;el.style.animation='';});
+    segs[i].classList.add('on');
+    no.textContent=pad(i+1)+' / '+pad(slides.length);
+    run();
+  }
+  function run(){clearTimeout(t);box.classList.toggle('paused',paused||hold);if(!paused&&!hold)t=setTimeout(function(){show(i+1);},DUR);}
+  segs.forEach(function(b,k){b.addEventListener('click',function(){show(k);});});
+  document.getElementById('tprev').addEventListener('click',function(){show(i-1);});
+  document.getElementById('tnext').addEventListener('click',function(){show(i+1);});
+  pp.addEventListener('click',function(){paused=!paused;pp.textContent=paused?'Play':'Pause';pp.setAttribute('aria-pressed',paused?'true':'false');run();});
+  box.addEventListener('mouseenter',function(){hold=true;run();});
+  box.addEventListener('mouseleave',function(){hold=false;show(i);});
+  if(paused){pp.textContent='Play';pp.setAttribute('aria-pressed','true');}
+  show(0);
+})();
+</script>
+</body>
+</html>
